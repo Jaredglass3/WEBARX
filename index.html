@@ -5,7 +5,7 @@
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 </head>
 <body>
-  <a-scene>
+  <a-scene cursor="rayOrigin: mouse">
 
     <!-- Text Content -->
     <a-entity position="0 1.5 -3" rotation="0 0 0">
@@ -16,46 +16,21 @@
       <a-text value="Social Media Links" color="gray" align="center" width="7" position="0 -1.5 0"></a-text>
       
       <!-- LinkedIn Image with Event Listener -->
-      <a-image src="linkedin.png" width="3" position="-3 -6.5 0" cursor-listener-linkedin></a-image>
+      <a-image src="linkedin.png" width="3" position="-3 -6.5 0" onclick="openURL('https://www.linkedin.com/in/jared-glass-0623k?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAD6vLXQBk8sDuNJSZgo2i6mMSMNiwoKCpjQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3Bjd2rOtMqQtO55koIAfd1sw%3D%3D')" ></a-image>
       
       <!-- GitHub Image with Event Listener -->
-      <a-image src="https://cdn.glitch.global/4888cd7b-9555-44d4-9de7-665722ce2c7a/GitHub-Symbol.png?v=1711993865423" width="3" position="3 -3.5 0" cursor-listener-github></a-image>
+      <a-image src="https://cdn.glitch.global/4888cd7b-9555-44d4-9de7-665722ce2c7a/GitHub-Symbol.png?v=1711993865423" width="3" position="3 -3.5 0" onclick="openURL('https://github.com/JaredGlass3')"></a-image>
       
       <!-- Twitter Image with Event Listener -->
-      <a-image src="twitter.png" width="3" position="0 -9.5 0" cursor-listener-twitter></a-image>
+      <a-image src="twitter.png" width="3" position="0 -9.5 0" onclick="openURL('https://twitter.com/your-handle')"></a-image>
     </a-entity>
   </a-scene>
 
   <script>
-    // Event listener for LinkedIn
-    AFRAME.registerComponent('cursor-listener-linkedin', {
-      init: function () {
-        var el = this.el;
-        el.addEventListener('click', function () {
-          window.location.href = 'https://www.linkedin.com/in/jared-glass-0623k?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAD6vLXQBk8sDuNJSZgo2i6mMSMNiwoKCpjQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3Bjd2rOtMqQtO55koIAfd1sw%3D%3D';
-        });
-      }
-    });
-
-    // Event listener for GitHub
-    AFRAME.registerComponent('cursor-listener-github', {
-      init: function () {
-        var el = this.el;
-        el.addEventListener('click', function () {
-          window.location.href = 'https://github.com/JaredGlass3';
-        });
-      }
-    });
-
-    // Event listener for Twitter
-    AFRAME.registerComponent('cursor-listener-twitter', {
-      init: function () {
-        var el = this.el;
-        el.addEventListener('click', function () {
-          window.location.href = 'https://twitter.com/your-handle';
-        });
-      }
-    });
+    // Function to open URL in a new window
+    function openURL(url) {
+      window.open(url, '_blank');
+    }
   </script>
 </body>
 </html>
