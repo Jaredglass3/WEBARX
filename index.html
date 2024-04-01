@@ -49,14 +49,10 @@
 <body>
 
 <div class="card">
-    <div>
-        <h2>Jared Glass</h2>
-        <p>XR Engineer</p>
-        <p>Email: jaredglass352@gmail.com</p>
-        <p>Phone: (123) 456-7890</p>
-    </div>
-    <button onclick="activateXR()">View AR Experience</button>
+    <!-- Placeholder for text content -->
 </div>
+
+<button onclick="activateXR()">View AR Experience</button>
 
 <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
 <script>
@@ -69,9 +65,9 @@
 
         const cardGeometry = new THREE.PlaneGeometry(1.5, 1);
         const cardMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
-        const card = new THREE.Mesh(cardGeometry, cardMaterial);
-        card.position.set(0, 0, -2); // Adjust position to be in front of the user
-        scene.add(card);
+        const cardMesh = new THREE.Mesh(cardGeometry, cardMaterial);
+        cardMesh.position.set(0, 0, -2); // Adjust position to be in front of the user
+        scene.add(cardMesh);
 
         const renderer = new THREE.WebGLRenderer({
             alpha: true,
@@ -111,6 +107,35 @@
             }
         }
         session.requestAnimationFrame(onXRFrame);
+        
+        // Add text to the card mesh
+        addTextToCard(cardMesh, "Jared Glass\nXR Engineer\nEmail: jaredglass352@gmail.com\nPhone: (123) 456-7890");
+    }
+
+    function addTextToCard(cardMesh, textContent, textColor = "#000000", textBackgroundColor = "#ffffff") {
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+        
+        canvas.width = 512; // Adjust as needed
+        canvas.height = 256; // Adjust as needed
+
+        context.fillStyle = textColor;
+        context.font = "24px Arial";
+        
+        context.fillText(textContent, 10, 50); // Adjust position as needed
+
+        const texture = new THREE.Texture(canvas);
+        texture.needsUpdate = true;
+
+        const material = new THREE.MeshBasicMaterial({
+            map: texture,
+            side: THREE.DoubleSide
+        });
+
+        cardMesh.material = material;
+
+        const textWidth = context.measureText(textContent).width;
+        cardMesh.scale.set(textWidth / 2, 1, 1); // Adjust scaling as needed
     }
 </script>
 </body>
