@@ -48,15 +48,11 @@
 </head>
 <body>
 
-<div class="card">
-    <div>
-        <h2>Jared Glass</h2>
-        <p>XR Engineer</p>
-        <p>Email: jaredglass352@gmail.com</p>
-        <p>Phone: (123) 456-7890</p>
-    </div>
-    <button onclick="activateXR()">View AR Experience</button>
+<div class="card" id="cardContainer">
+    <!-- Placeholder for text content -->
 </div>
+
+<button onclick="activateXR()">View AR Experience</button>
 
 <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
 <script>
@@ -69,9 +65,9 @@
 
         const cardGeometry = new THREE.PlaneGeometry(1.5, 1);
         const cardMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
-        const card = new THREE.Mesh(cardGeometry, cardMaterial);
-        card.position.set(0, 0, -2); // Adjust position to be in front of the user
-        scene.add(card);
+        const cardMesh = new THREE.Mesh(cardGeometry, cardMaterial);
+        cardMesh.position.set(0, 0, -2); // Adjust position to be in front of the user
+        scene.add(cardMesh);
 
         const renderer = new THREE.WebGLRenderer({
             alpha: true,
@@ -111,6 +107,34 @@
             }
         }
         session.requestAnimationFrame(onXRFrame);
+        
+        // Add text content to the card mesh
+        addTextToCard(cardMesh);
+    }
+
+    function addTextToCard(cardMesh) {
+        // Create text content dynamically
+        const textContent = `
+            <h2>Jared Glass</h2>
+            <p>XR Engineer</p>
+            <p>Email: jaredglass352@gmail.com</p>
+            <p>Phone: (123) 456-7890</p>
+        `;
+
+        // Create a container for the text content
+        const textContainer = document.createElement("div");
+        textContainer.innerHTML = textContent;
+
+        // Convert the container to a texture and apply it to the card mesh
+        const texture = new THREE.Texture(textContainer);
+        texture.needsUpdate = true;
+        
+        const material = new THREE.MeshBasicMaterial({
+            map: texture,
+            side: THREE.DoubleSide
+        });
+
+        cardMesh.material = material;
     }
 </script>
 </body>
