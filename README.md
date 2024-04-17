@@ -1,48 +1,11 @@
-# Hello website!
+# WebARX\
 
-This is a basic HTML starter project you can build on however you like. No need to save. While you develop your site, your changes will happen ✨ immediately in the preview window. On the left you'll see the files that make up your site, including HTML, JavaScript, and CSS. You can upload assets like images or audio in `assets`. The rest is up to you and your imagination. 🦄
-
-_Last updated: 28 Feb 2023_
+This project was build by Jared Glass (LinkedIn: https://www.linkedin.com/in/jared-glass-0623k/ Twitter: https://twitter.com/GlassJared352) with the goal of creating an Augmented Reality (AR) Business card through using WEBXR and ThreeJs. It was created using Glitch.com and A-Frame in order to streamline the process and utilize A-Frame's features and simplicity.
 
 ## What's in this project?
 
-← `README.md`: That's this file, where you can tell people what your cool website does and how you built it.
+In this project is a simple AR Business card created using A-Frame so that it can be pulled up through a QR code that pulls up the github pages website that it is attached to.
 
-← `index.html`: This is the main web page for your site. The HTML defines the structure and content of the page using _elements_. You'll see references in the HTML to the JS and CSS files. Try clicking the image in the center of the page!
+### What was the process I used for this project?
 
-← `style.css`: CSS files add styling rules to your content. The CSS applies styles to the elements in your HTML page. The style rules also make the image move when you click it.
-
-← `script.js`: If you're feeling fancy you can add interactivity to your site with JavaScript. The code in the JavaScript file runs when the page loads, and when the visitor clicks the button you can add using the code in the TODO.
-
-Open each file and check out the comments (in gray) for more info.
-
-## Try this next 🏗️
-
-Take a look in `TODO.md` for next steps you can try out in your new site!
-
-___Want a minimal version of this project to build your own website? Check out [Blank Website](https://glitch.com/edit/#!/remix/glitch-blank-website)!___
-
-## Ready to share your site?
-
-Add these meta tags for SEO and social sharing between your page `<head></head>` tags, changing the values for your site:
-
-```
-<link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
-<meta name="description" content="A simple website, built with Glitch. Remix it to get your own."/>
-<meta name="robots" content="index,follow" />
-<meta property="og:title" content="Hello World!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
-<meta property="og:description" content="A simple website, built with Glitch. Remix it to get your own."/>
-<meta property="og:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"/>
-<meta name="twitter:card" content="summary" />
-```
-
-![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
-
-## You built this with Glitch!
-
-[Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
-
-- Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
-- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.
+I started out this project using plain threejs with which it quickly became apparent that the project was becoming complicated and I wasn;t able to get many features to work properly so I turned to my peers to see if any of them had any advice or resurces to share and that is what led me to using A-Frame. A-Frame is a Web Framework built for WebXR that is used primarily for building Virtual Reality experiences in HTML but I was able to adapt it to use with my AR buisness card. A-Frame was designed to allow anyone the ability to create VR websites and games quick and easily through several prebuild commands. All it took to put A-Frame in my project was to add a simple line of code to my Header: <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>. With this simple script tag I was able to add A-Frame into my project and with it I was able to quickly build a working Businesss card that I hope to build onto in the future!
