@@ -1,4 +1,4 @@
-# WebARX\
+# WebARX
 
 This project was build by Jared Glass (LinkedIn: https://www.linkedin.com/in/jared-glass-0623k/ Twitter: https://twitter.com/GlassJared352) with the goal of creating an Augmented Reality (AR) Business card through using WEBXR and ThreeJs. It was created using Glitch.com and A-Frame in order to streamline the process and utilize A-Frame's features and simplicity.
 
